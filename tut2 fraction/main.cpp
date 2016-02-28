@@ -49,6 +49,36 @@ void fraction::divide(fraction value) {            //division operation
 	n = n*denom;                                   //the numerator quotient answer
 	d = d*num;                                     //the denominator quotient answer
 }
+void fraction::getnumdenom(int &num, int &denom)
+{
+	denom = d;
+	num = n;
+
+}
+void fraction::setnumdenom(int num, int denom) {
+
+
+	d = denom;
+	n = num;
+
+}
+void fraction::print() {
+	int whole, numerator, denominator;
+	whole = n / d;                       //extracting the whole part of a fraction
+	numerator = (n%d);                    //extracting the numerator part of a fraction
+	denominator = d;                     //extracting the denominator part of a fraction
+
+	if (whole != 0) {                     //setting conditions for displaying values
+		cout << whole << " ";
+	}
+	if (numerator != 0) {
+		cout << numerator << "/" << denominator;
+	}
+}
+fraction::~fraction()                      //destructor
+{
+}
+
 int main()
 {
 	
