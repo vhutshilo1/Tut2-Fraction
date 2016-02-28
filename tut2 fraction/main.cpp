@@ -81,6 +81,50 @@ fraction::~fraction()                      //destructor
 
 int main()
 {
-	
+	fraction A, B, C, D, E, F;  //initializing random variables
+	int Denom, Num;
+	cout << "Fraction A" << endl;
+	cout << "Enter the numerator and denominator respectivery:  ";
+	cin >> Num >> Denom;
+	A.setnumdenom(Num, Denom);
+	cout << "\n\n\n" << endl;
+
+	cout << "Fraction B" << endl;
+	cout << "Enter the numerator and denominator respectivery:  ";
+	cin >> Num >> Denom;
+	B.setnumdenom(Num, Denom);
+	cout << "\n\n\n" << endl;
+
+	cout << "Fraction c" << endl;
+	cout << "Enter the numerator and denominator respectivery:  ";
+	cin >> Num >> Denom;
+	C.setnumdenom(Num, Denom);
+	cout << "\n\n\n" << endl;
+
+	A.add(B);   //adding fractions A and B
+	B.multiply(C);
+
+	//copy B into D 
+	B.getnumdenom(Num, Denom);
+	D.setnumdenom(Num, Denom);
+
+	D.divide(A);
+
+
+	cout << "fraction A is ";
+	A.print();
+	cout << "\n\n\nfraction B is ";
+	A.print();
+	cout << "\n\n\nfraction C is ";
+	A.print();
+	cout << "\n\nfraction D is ";
+	A.print();
+
+
+
+
+
+
+
 
 }
