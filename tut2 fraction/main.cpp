@@ -19,6 +19,23 @@ private:
 
 
 };
+fraction::fraction()    //constructor
+
+{
+}
+void fraction::add(fraction value)   //addition operation
+{
+	int num, denom;
+	value.getnumdenom(num, denom);      // extracts the  numerator and denominator of fraction 'value' 
+	n = n*denom + num*d;               //the numerator sum answer
+	d = d*denom;                      //the denominator sum answer
+}
+void fraction::subtract(fraction value) {             //subtraction operation
+	int num, denom;
+	value.getnumdenom(num, denom);
+	n = n*denom - num*d;                     //the numerator difference answer
+	d = d*denom;                               //the denominator difference answer
+}
 
 int main()
 {
