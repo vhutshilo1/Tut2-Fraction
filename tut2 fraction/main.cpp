@@ -4,7 +4,7 @@ using namespace std;
 class fraction
 
 {
-public:
+public://declaring function members
 	fraction();
 	void add(fraction);
 	void subtract(fraction);
