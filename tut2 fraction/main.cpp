@@ -36,7 +36,19 @@ void fraction::subtract(fraction value) {             //subtraction operation
 	n = n*denom - num*d;                     //the numerator difference answer
 	d = d*denom;                               //the denominator difference answer
 }
+void fraction::multiply(fraction value) {           //multiplication operation
+	int num, denom;
+	value.getnumdenom(num, denom);
+	n = n*num;                                        //the numerator product answer
+	d = d*denom;                                      //the denominator product answer
 
+}
+void fraction::divide(fraction value) {            //division operation
+	int num, denom;
+	value.getnumdenom(num, denom);
+	n = n*denom;                                   //the numerator quotient answer
+	d = d*num;                                     //the denominator quotient answer
+}
 int main()
 {
 	
