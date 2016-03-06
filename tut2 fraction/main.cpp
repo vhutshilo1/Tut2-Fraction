@@ -1,10 +1,9 @@
 #include <iostream>
-
 using namespace std;
 class fraction
 
 {
-public://declaring function members
+public:
 	fraction();
 	void add(fraction);
 	void subtract(fraction);
@@ -13,17 +12,21 @@ public://declaring function members
 	void print();
 	void getnumdenom(int &num, int &denom);
 	void setnumdenom(int num, int denom);
+	fraction operator + (fraction);
+	fraction operator - (fraction);
+	fraction operator * (fraction);
+	fraction operator / (fraction);
 	~fraction();
 private:
-	int  n, d;        //private variables numerator and denominator
+	int  n, d;        //private variables numerator and denominato
 
 
 };
-fraction::fraction()    //constructor
+fraction::fraction()    // the contructor
 
 {
 }
-void fraction::add(fraction value)   //addition operation
+void fraction::add(fraction value)   //adition operation
 {
 	int num, denom;
 	value.getnumdenom(num, denom);      // extracts the  numerator and denominator of fraction 'value' 
@@ -33,55 +36,107 @@ void fraction::add(fraction value)   //addition operation
 void fraction::subtract(fraction value) {             //subtraction operation
 	int num, denom;
 	value.getnumdenom(num, denom);
-	n = n*denom - num*d;                     //the numerator difference answer
-	d = d*denom;                               //the denominator difference answer
+	n = n*denom - num*d;
+	d = d*denom;
 }
 void fraction::multiply(fraction value) {           //multiplication operation
 	int num, denom;
 	value.getnumdenom(num, denom);
-	n = n*num;                                        //the numerator product answer
-	d = d*denom;                                      //the denominator product answer
+	n = n*num;
+	d = d*denom;
 
 }
 void fraction::divide(fraction value) {            //division operation
 	int num, denom;
 	value.getnumdenom(num, denom);
-	n = n*denom;                                   //the numerator quotient answer
-	d = d*num;                                     //the denominator quotient answer
+	n = n*denom;
+	d = d*num;
 }
-void fraction::getnumdenom(int &num, int &denom)
+
+void fraction::getnumdenom(int &num, int &denom)   //get number method
 {
 	denom = d;
 	num = n;
 
 }
-void fraction::setnumdenom(int num, int denom) {
+void fraction::setnumdenom(int num, int denom) {     //set number method
 
-
-	d = denom;
-	n = num;
-
+	
+		d = denom;
+		n = num;
+	
 }
-void fraction::print() {
+void fraction::print() {                                //function to print the displayed fractional number
 	int whole, numerator, denominator;
-	whole = n / d;                       //extracting the whole part of a fraction
-	numerator = (n%d);                    //extracting the numerator part of a fraction
-	denominator = d;                     //extracting the denominator part of a fraction
+	whole = n / d;
+	numerator = (n%d);
+	denominator = d;
 
-	if (whole != 0) {                     //setting conditions for displaying values
+	if (whole != 0) {
 		cout << whole << " ";
 	}
 	if (numerator != 0) {
 		cout << numerator << "/" << denominator;
 	}
 }
-fraction::~fraction()                      //destructor
+
+//using overloading for respective functions for different operation
+
+//for addition fraction
+fraction fraction::operator + (fraction value) {
+	//variables of storing passed and returned values 
+	int num, denom, num1, denom1;
+	fraction obj;
+	value.getnumdenom(num, denom);
+    num1= n*denom + num*d;
+    denom1= d*denom;
+    obj.setnumdenom(num1, denom1);
+	return obj;
+}
+
+//for subtraction
+fraction fraction::operator -(fraction value)
+{
+	int num, denom, num1, denom1;
+	fraction obj;
+	value.getnumdenom(num, denom);
+	num1 = n*denom - num*d;
+	denom1 = d*denom;
+	obj.setnumdenom(num1, denom1);
+	return obj;
+}
+//for multiplication
+fraction fraction::operator*(fraction value)
+{
+	int num, denom, num1, denom1;
+	fraction obj;
+	value.getnumdenom(num, denom);
+	num1 = n*num;
+	denom1 = d*denom;
+	obj.setnumdenom(num1, denom1);
+	return obj;
+}
+//for division
+fraction fraction::operator/(fraction value)
+{
+	int num, denom, num1, denom1;
+	fraction obj;
+	value.getnumdenom(num, denom);
+	num1 = n*denom;
+	denom1 = d*num;
+	obj.setnumdenom(num1, denom1);
+	return obj;
+}
+fraction::~fraction()
 {
 }
 
+
 int main()
 {
-	fraction A, B, C, D, E, F;  //initializing random variables
+
+	//testing functions
+	fraction A, B, C, D, E, F;
 	int Denom, Num;
 	cout << "Fraction A" << endl;
 	cout << "Enter the numerator and denominator respectivery:  ";
@@ -105,9 +160,9 @@ int main()
 	B.multiply(C);
 
 	//copy B into D 
-	B.getnumdenom(Num, Denom);
+	B.getnumdenom(Num,Denom);
 	D.setnumdenom(Num, Denom);
-
+	
 	D.divide(A);
 
 
@@ -119,12 +174,5 @@ int main()
 	A.print();
 	cout << "\n\nfraction D is ";
 	A.print();
-
-
-
-
-
-
-
 
 }
