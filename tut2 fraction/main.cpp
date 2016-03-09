@@ -164,7 +164,7 @@ int main()
 	D.setnumdenom(Num, Denom);
 	
 	D.divide(A);
-
+	//.......
 
 	cout << "fraction A is ";
 	A.print();
